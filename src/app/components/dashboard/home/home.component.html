@@ -1,1 +1,39 @@
-<p>home works!</p>
+
+<div [hidden]="webcamImage" >
+    <div class="body">
+        <webcam *ngIf="showWebcam"
+            [height]="500" 
+            [width]="500" 
+            [trigger]="triggerObservable" 
+            (imageCapture)="handleImage($event)"
+            [imageQuality]="1"
+            >
+        </webcam>
+    </div>
+    
+    <!-- Button Takes Photo -->
+    <div class="body">
+        <button *ngIf="showWebcam" mat-raised-button color="primary" (click)="triggerSnapshot()">Take A Snapshot</button>&nbsp;
+        <button mat-raised-button  (click)="showWebcam= !showWebcam">
+            <span [hidden]="showWebcam">Turn on</span>
+            <span [hidden]="!showWebcam">Turn off</span>
+        </button>
+    </div>
+</div>
+
+<!-- Snapshot Div where image will be shown -->
+<div *ngIf="webcamImage">
+    <div class="body">  
+        <img [src]="webcamImage.imageAsDataUrl" [width]="500"/>
+    </div>
+    <br/>
+    <div class="body">
+        <br/>
+        <a mat-raised-button color="primary" [href]="webcamImage.imageAsDataUrl" download>Download</a>&nbsp;
+        <a mat-raised-button (click)="resetAll()" >Take it again!</a>
+    </div>
+    <div class="body">
+        <br/>
+        <h2>Take your image or get another</h2>
+    </div>
+</div>
