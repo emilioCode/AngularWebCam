@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { WebcamImage } from 'ngx-webcam';
+import { WebCamImageService } from 'src/app/services/web-cam-image.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,12 @@ import { WebcamImage } from 'ngx-webcam';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private imagesService: WebCamImageService) { }
 
   ngOnInit(): void {
   }
+  saved: boolean = false;
 
   // latest snapshot
   public webcamImage: WebcamImage = null!;
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   triggerSnapshot(): void {
     this.trigger.next();
+    this.saved = false;
   }
   
   handleImage(webcamImage: WebcamImage): void {
@@ -34,21 +37,22 @@ export class HomeComponent implements OnInit {
     return this.trigger.asObservable();
   }
 
-  resetAll():void{
+  resetAll(): void {
     this.webcamImage = null!;
   }
 
-  /* Using fetch */
-  // async downloadImage(imageSrc: string) {
-  //   const image = await fetch(imageSrc)
-  //   const imageBlog = await image.blob()
-  //   const imageURL = URL.createObjectURL(imageBlog)
+  saveData(): void {
+    const response = this.imagesService.pushData({
+       _imageAsBase64: this.webcamImage.imageAsBase64,
+       _imageAsDataUrl: this.webcamImage.imageAsDataUrl,
+      _imageData: this.webcamImage.imageData
+    });
 
-  //   const link = document.createElement('a')
-  //   link.href = imageURL
-  //   link.download = 'image file name here'
-  //   document.body.appendChild(link)
-  //   link.click()
-  //   document.body.removeChild(link)
-  // }
+    if(!response) {
+      alert('the picture does not save in the localStorage. Please try again');
+      return;
+    }
+    this.saved = true;
+  }
+
 }

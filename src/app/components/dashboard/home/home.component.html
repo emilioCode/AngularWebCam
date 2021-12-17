@@ -30,6 +30,7 @@
     <div class="body">
         <br/>
         <a mat-raised-button color="primary" [href]="webcamImage.imageAsDataUrl" download>Download</a>&nbsp;
+        <a mat-stroked-button color="primary" *ngIf="!saved" (click)="saveData()">Save to Gallery</a>&nbsp;
         <a mat-raised-button (click)="resetAll()" >Take it again!</a>
     </div>
     <div class="body">
@@ -37,3 +38,5 @@
         <h2>Take your image or get another</h2>
     </div>
 </div>
+
+

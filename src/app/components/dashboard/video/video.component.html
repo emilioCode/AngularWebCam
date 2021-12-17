@@ -1,0 +1,20 @@
+
+<h2 style="text-align: center;">De forma Nativa con el Navegador</h2>
+<div class="body">
+    <video controls height="300px">
+
+        <source src="{{ videoSrc.src }}"
+            type="{{ videoSrc.type }}">
+    
+                <source src="{{ videoSrc.src }}"
+                type="{{ videoSrc.type }}">
+    
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<br/>
+<h2 style="text-align: center;">Utilizando Video.js</h2>
+<div class="body">
+    <video #target class="video-js" controls  playsinline preload="none" height="300px" ></video>
+</div>
