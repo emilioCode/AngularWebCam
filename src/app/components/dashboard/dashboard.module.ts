@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { WebcamModule } from 'ngx-webcam';
+import { VideoComponent } from './video/video.component';
+import { MatGridTileComponent } from './gallery/mat-grid-tile/mat-grid-tile.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { WebcamModule } from 'ngx-webcam';
     HomeComponent,
     NavbarComponent,
     GalleryComponent,
+    VideoComponent,
+    MatGridTileComponent,
   ],
   imports: [
     CommonModule,

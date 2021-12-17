@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { SharedModule } from './components/shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import { CommonService } from './services/common.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { LoginComponent } from './login/login.component';
     SharedModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

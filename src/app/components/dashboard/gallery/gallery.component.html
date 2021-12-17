@@ -1,1 +1,13 @@
-<p>gallery works!</p>
+
+<app-mat-grid-tile 
+    [cols]="'6'"
+    [rowspan]="'100px'"
+    [colspan]="'2'"
+    [rowspan]="'3'"
+    [background]="''"
+    [images]="webCamImages"
+
+    (remove)="removeItem($event)"
+    (download)="download($event)"
+>
+</app-mat-grid-tile>

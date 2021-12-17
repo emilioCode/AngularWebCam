@@ -1,0 +1,26 @@
+
+
+<mat-grid-list cols="{{ cols }}" rowHeight="{{ rowHeight }}">
+
+    <mat-grid-tile *ngFor="let image of images; index as i"
+        [colspan]="colspan"
+        [rowspan]="rowspan"
+        [style.background]="background">
+        <div style="padding-bottom:100px; ">  
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar style="background-size: cover; background-image: url('{{ image._imageAsDataUrl }}');"></div>
+                    <mat-card-title>Photo No.{{ i + 1 }}</mat-card-title>
+                    <mat-card-subtitle>Snapshot #{{ i + 1 }}</mat-card-subtitle>
+                  </mat-card-header>
+                <img mat-card-image [src]="image._imageAsDataUrl" />
+                <mat-card-content>
+                    <button mat-button (click)="openNewTab(image._imageAsDataUrl)">OPEN NEW TAB</button>
+                    <button mat-button (click)="removeAt(i)">REMOVE</button>
+                </mat-card-content>
+            </mat-card>
+           
+        </div>
+    </mat-grid-tile>
+
+</mat-grid-list>
