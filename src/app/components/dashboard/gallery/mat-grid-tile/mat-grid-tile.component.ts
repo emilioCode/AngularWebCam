@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { WebCamImageItem } from 'src/app/models/interfaces';
-import { WebCamImageService } from 'src/app/services/web-cam-image.service';
+import { WebCamImageItem } from 'src/app/components/shared/interfaces';
+import { WebCamImageService } from 'src/app/components/shared/services/web-cam-image.service';
 
 @Component({
   selector: 'app-mat-grid-tile',
@@ -26,7 +26,7 @@ export class MatGridTileComponent implements OnInit {
     this.remove.emit(index);
   }
 
-  openNewTab(url:any){
+  toDownload(url:any){
     this.download.emit(url);
   }
 }

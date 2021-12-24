@@ -1,4 +1,8 @@
 
+<div class="body">
+    <button mat-raised-button color="primary" [routerLink]="['/dashboard']">Acceder a la WebCam</button>
+</div>
+
 <app-mat-grid-tile 
     [cols]="'6'"
     [rowspan]="'100px'"
@@ -11,3 +15,4 @@
     (download)="download($event)"
 >
 </app-mat-grid-tile>
+

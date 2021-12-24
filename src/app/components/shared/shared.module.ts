@@ -9,10 +9,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 
-@NgModule({
-  declarations: [
+// Other Modules
+import { CommonService } from './services/common.service';
+import { HttpClientModule } from '@angular/common/http';
 
-  ],
+@NgModule({
+  declarations: [],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -20,7 +22,8 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   exports:[
     CommonModule,
@@ -29,7 +32,9 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
-    MatCardModule
-  ]
+    MatCardModule,
+    HttpClientModule
+  ],
+  providers: [ CommonService ]
 })
 export class SharedModule { }

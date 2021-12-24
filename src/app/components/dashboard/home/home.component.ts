@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { WebcamImage } from 'ngx-webcam';
-import { WebCamImageService } from 'src/app/services/web-cam-image.service';
+import { WebCamImageService } from 'src/app/components/shared/services/web-cam-image.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   // latest snapshot
   public webcamImage: WebcamImage = null!;
-  showWebcam: boolean = false;
+  showWebcam: boolean = true;
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
 
@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
 
   saveData(): void {
     const response = this.imagesService.pushData({
-       _imageAsBase64: this.webcamImage.imageAsBase64,
-       _imageAsDataUrl: this.webcamImage.imageAsDataUrl,
+      _imageAsBase64: this.webcamImage.imageAsBase64,
+      _imageAsDataUrl: this.webcamImage.imageAsDataUrl,
       _imageData: this.webcamImage.imageData
     });
 
