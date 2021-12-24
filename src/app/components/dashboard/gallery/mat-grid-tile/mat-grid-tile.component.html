@@ -15,7 +15,7 @@
                   </mat-card-header>
                 <img mat-card-image [src]="image._imageAsDataUrl" />
                 <mat-card-content>
-                    <button mat-button (click)="openNewTab(image._imageAsDataUrl)">OPEN NEW TAB</button>
+                    <button mat-button (click)="toDownload(image._imageAsDataUrl)">DOWNLOAD</button>
                     <button mat-button (click)="removeAt(i)">REMOVE</button>
                 </mat-card-content>
             </mat-card>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WebCamImageItem } from 'src/app/models/interfaces/index';
-import { WebCamImageService } from 'src/app/services/web-cam-image.service';
+import { WebCamImageItem } from 'src/app/components/shared/interfaces/index';
+import { WebCamImageService } from 'src/app/components/shared/services/web-cam-image.service';
 
 @Component({
   selector: 'app-gallery',
@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
   }
   
   loadData(){
-    this.webCamImages = this.imagesService.loadData(); console.log(this.webCamImages)
+    this.webCamImages = this.imagesService.loadData();
   }
 
   removeItem = (index: number) => {

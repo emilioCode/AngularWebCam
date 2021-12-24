@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WebCamImageItem } from '../models/interfaces';
+import { WebCamImageItem } from '../interfaces';
 import { CommonService } from './common.service';
 
 @Injectable({
@@ -12,12 +12,12 @@ export class WebCamImageService {
   private webCamImages!: WebCamImageItem[];
 
   loadData =(): WebCamImageItem[]=> {
-    return this.commonService.localStorage.get('images')
+    return this.webCamImages = this.commonService.localStorage.get('images')? this.commonService.localStorage.get('images'): [];
   }
 
   pushData = (webcamImage: WebCamImageItem) => {
     try {
-      this.webCamImages = this.commonService.localStorage.get('images')? this.commonService.localStorage.get('images'): [];
+      this.webCamImages = this.loadData();
       this.webCamImages.push(webcamImage);
       this.commonService.localStorage.set('images', this.webCamImages);
       return true;
@@ -29,8 +29,6 @@ export class WebCamImageService {
 
   pushDataArray = (webcamImage: WebCamImageItem[]) => {
     try {
-      // this.webCamImages = this.commonService.localStorage.get('images')? this.commonService.localStorage.get('images'): [];
-      // this.webCamImages.push(webcamImage);
       this.commonService.localStorage.set('images', this.webCamImages);
       return true;
     } catch (err) {
@@ -49,7 +47,7 @@ export class WebCamImageService {
         }else{
           this.pushDataArray(this.webCamImages);
         }
-        console.log('operation: success');
+        
       }else{
         console.log('the list is empty.');
       }

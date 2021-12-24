@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Acceder a la WebCam",
+        "redirect": "/dashboard",
+        "color": "primary"
+    },
+    {
+        "name": "Galería de videos",
+        "redirect": "/dashboard/video",
+        "color": "accent"
+    },
+    {
+        "name": "Galería de fotos",
+        "redirect": "/dashboard/gallery",
+        "color": ""
+    }
+]

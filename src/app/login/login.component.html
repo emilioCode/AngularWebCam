@@ -1,17 +1,14 @@
 <div class="body">
     <div class="login">
-        <img src="./assets/img/kindpng_775342.png" width="30%">
+        <img src="./assets/img/Bokehlicia-Captiva-Camera-screenshot.ico" width="50%">
         <h3>Seleccione la opción que desea</h3>
         <div>
-            <button mat-raised-button color="primary" [routerLink]="['/dashboard']">Acceder a la WebCam</button>
-        </div>
-        <br/>
-        <div>
-            <button mat-raised-button color="accent" [routerLink]="['/dashboard/video']">Grabar un Video</button>
-        </div>
-        <br/>
-        <div>
-            <button mat-raised-button [routerLink]="['/dashboard/gallery']">Ir a Registro</button>
+            <div *ngFor="let btn of buttons">
+                <div >
+                    <button mat-raised-button color="{{ btn.color }}" [routerLink]="[btn.redirect]">{{ btn.name }}</button>
+                </div>
+                <br/>
+            </div>
         </div>
     </div>
 </div>

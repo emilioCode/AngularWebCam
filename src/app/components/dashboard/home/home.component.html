@@ -14,10 +14,11 @@
     <!-- Button Takes Photo -->
     <div class="body">
         <button *ngIf="showWebcam" mat-raised-button color="primary" (click)="triggerSnapshot()">Take A Snapshot</button>&nbsp;
-        <button mat-raised-button  (click)="showWebcam= !showWebcam">
+        <button mat-raised-button color="warn" (click)="showWebcam= !showWebcam">
             <span [hidden]="showWebcam">Turn on</span>
             <span [hidden]="!showWebcam">Turn off</span>
-        </button>
+        </button>&nbsp;
+        <button mat-raised-button [routerLink]="['/dashboard/gallery']">Galería de fotos</button>
     </div>
 </div>
 
