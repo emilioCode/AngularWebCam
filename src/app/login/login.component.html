@@ -3,7 +3,7 @@
         <img src="./assets/img/Bokehlicia-Captiva-Camera-screenshot.ico" width="50%">
         <h3>Seleccione la opción que desea</h3>
         <div>
-            <div *ngFor="let btn of buttons">
+            <div *ngFor="let btn of buttons$ | async">
                 <div >
                     <button mat-raised-button color="{{ btn.color }}" [routerLink]="[btn.redirect]">{{ btn.name }}</button>
                 </div>
